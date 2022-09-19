@@ -1,0 +1,117 @@
+class Solution:
+    def romanToInt(self, R_num):
+        lst=[]
+        global p
+        p=0
+        global q
+        q=0
+        global r
+        r=0
+        global s
+        s=0
+        global t
+        t=0
+        global u
+        u=0
+        
+        self.R_num = R_num
+        for w in R_num:
+            lst.append(w)
+        
+        for n, j in enumerate(lst):
+            try:
+                if lst[n] == 'I' and lst[n+1]=='V':
+                    p=4
+                    lst[n+1] = 'O'
+                    lst[n] ='O'
+                    continue
+
+                elif lst[n] == 'I' and lst[n+1]=='X':
+                    q=9
+                    lst[n+1] = 'O'
+                    lst[n] ='O'
+                    continue
+
+                elif lst[n] == 'X' and lst[n+1]=='L':
+                    r=40
+                    lst[n+1] = 'O'
+                    lst[n] ='O'
+                    continue
+
+                elif lst[n] == 'X' and lst[n+1]=='C':
+                    s=90
+                    lst[n+1] = 'O'
+                    lst[n] ='O'
+                    continue
+
+                elif lst[n] == 'C' and lst[n+1]=='D':
+                    t=400
+                    lst[n+1] = 'O'
+                    lst[n] ='O'
+                    continue
+
+                elif lst[n] == 'C' and lst[n+1]=='M':
+                    u=900
+                    lst[n+1] = 'O'
+                    lst[n] ='O'
+                    continue
+
+            
+            except:
+                pass
+            
+            sum_1= p+q+r+s+t+u
+        
+        try:
+            for k in lst:
+                lst.remove('O')
+                
+        except:
+            pass
+            
+            
+        
+
+#         for k in lst:
+#             lst.remove('O')
+        
+        global m
+        m=0
+        global d
+        d=0
+        global c
+        c=0
+        global l
+        l=0
+        global x
+        x=0
+        global v
+        v=0
+        global i
+        i=0   
+        for h in lst:
+            count=lst.count(h)
+
+            if h=='M':
+                m=count*1000
+            elif h=='D':
+                d=count*500
+            elif h=='C':
+                c=count*100
+            elif h=='L':
+                l=count*50
+            elif h=='X':
+                x=count*10
+            elif h=='V':
+                v=count*5
+            elif h=='I':
+                i=count*1
+
+            sum_2=m+d+c+l+x+v+i
+
+        total = sum_1+sum_2
+        return total
+
+R_num="III"
+obj=Solution()
+numaric=obj.romanToInt(R_num)
